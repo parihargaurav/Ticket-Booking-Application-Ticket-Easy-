@@ -32,3 +32,4 @@ To run Ticket Easy locally, follow these steps:
 7. Start the frontend server using `npm start`.
 8. Access Ticket Easy through your web browser at `http://localhost:3000`.
 
+ ![Screenshot (109)](https://github.com/user-attachments/assets/685ca919-9e38-4dcc-9017-17f67990a7d6)
