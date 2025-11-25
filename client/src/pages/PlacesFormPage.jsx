@@ -22,7 +22,7 @@ export default function PlacesFormPage() {
     if (!id) {
       return;
     }
-    axios.get('/places/'+id).then(response => {
+    axios.get('/api/places/'+id).then(response => {
        const {data} = response;
        setTitle(data.title);
        setAddress(data.address);

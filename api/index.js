@@ -22,15 +22,16 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:3000',
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    
+
   })
 );
 
 mongoose
-  .connect("mongodb://localhost:27017/Travel", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect("mongodb://localhost:27017/Travel")
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -254,6 +255,6 @@ app.get("/api/bookings", async (req, res) => {
   res.json(await Booking.find({ user: userData.id }).populate("place"));
 });
 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
+app.listen(8000, () => {
+  console.log("Server is running on port 8000");
 });

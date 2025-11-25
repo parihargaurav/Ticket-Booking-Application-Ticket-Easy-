@@ -6,7 +6,7 @@ import Image from "../Image.jsx";
 export default function IndexPage() {
   const [places,setPlaces] = useState([]);
   useEffect(() => {
-    axios.get('/places').then(response => {
+    axios.get('/api/places').then(response => {
       setPlaces(response.data);
     });
   }, []);
