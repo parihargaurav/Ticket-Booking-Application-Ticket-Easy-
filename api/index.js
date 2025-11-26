@@ -12,10 +12,14 @@ const fs = require("fs");
 const { GridFSBucket } = require("mongodb");
 
 require("dotenv").config();
+require("./models/db.js");
 const app = express();
 
-const bcryptSalt = bcrypt.genSaltSync(10);
-const jwtSecret = "fasefraw4r5r3wq45wdfgw34twdfg";
+const bcryptSalt = bcrypt.genSaltSync(parseInt(process.env.BCRYPT_SALT));
+const jwtSecret = process.env.JWT_SECRET;
+
+
+const PORT = process.env.PORT; 
 
 app.use(express.json());
 app.use(cookieParser());
@@ -26,18 +30,9 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     
-
   })
 );
 
-mongoose
-  .connect("mongodb://localhost:27017/Travel")
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB", err);
-  });
 
 const conn = mongoose.connection;
 let gfs;
@@ -255,6 +250,6 @@ app.get("/api/bookings", async (req, res) => {
   res.json(await Booking.find({ user: userData.id }).populate("place"));
 });
 
-app.listen(8000, () => {
-  console.log("Server is running on port 8000");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
