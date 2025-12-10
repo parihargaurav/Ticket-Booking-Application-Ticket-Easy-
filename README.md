@@ -1,35 +1,32 @@
-# Ticket Easy: A Ticketless Entry System for Visiting Monuments and Heritage Places of Jodhpur
+# Ticket Booking Application
 
-#### Ticket Easy is a project aimed at revolutionizing the visitor experience at monuments and heritage places in Jodhpur by introducing a ticketless entry system. The project leverages modern technology to streamline the entry process, making it convenient and hassle-free for both visitors and administrators.
+This is a ticket booking application built using React, Express, MongoDB and Cloudinary.
 
-### Key Features:
-1. **Ticketless Entry System**: Say goodbye to physical tickets and long queues. Ticket Easy allows visitors to enter monuments and heritage places without the need for traditional paper tickets.
-   
-2. **Convenient Reservation Process**: Visitors can easily make reservations and bookings through the Ticket Easy platform, eliminating the need for manual ticket purchases.
+## Frontend
 
-3. **Seamless Integration of Payment Gateway**: The integration of Stripe API enables secure and efficient online payments for reservations, ensuring a smooth transaction process.
+The frontend is built using React and is responsible for rendering the user interface. It uses React Router for client-side routing and React Hooks for managing state.
 
-4. **Real-time Availability Updates**: Ticket Easy provides real-time updates on the availability of slots and entry timings, allowing visitors to plan their visits accordingly.
+The application is divided into several components:
 
-5. **Interactive User Interface**: Built with ReactJS, the user interface of Ticket Easy is intuitive and user-friendly, providing a seamless experience for visitors navigating the platform.
+* Header: displays the navigation bar and logo
+* IndexPage: displays the homepage with a list of places
+* LoginPage: handles user login
+* RegisterPage: handles user registration
+* ProfilePage: displays user profile information and bookings
+* PlacesPage: displays a list of places
+* PlacePage: displays information about a specific place
+* BookingPage: handles booking for a specific place
+* BookingWidget: handles the booking form and calendar
 
-6. **Robust Backend Infrastructure**: Powered by NodeJS, ExpressJS, and MongoDB, Ticket Easy boasts a robust backend infrastructure capable of handling large volumes of data and transactions efficiently.
+## Backend
 
-### Technology Stack:
-- **Frontend**: ReactJS, Tailwind CSS
-- **Backend**: NodeJS, ExpressJS
-- **Database**: MongoDB
-- **Payment Gateway**: Stripe API
+The backend is built using Express and is responsible for handling API requests. It uses MongoDB as the database and Cloudinary for image storage.
 
-### How to Run:
-To run Ticket Easy locally, follow these steps:
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Install dependencies using `npm install`.
-4. Start the backend server using `npm start`.
-5. Navigate to the `frontend` directory.
-6. Install client dependencies using `npm install`.
-7. Start the frontend server using `npm start`.
-8. Access Ticket Easy through your web browser at `http://localhost:3000`.
+The application has the following API endpoints:
 
- ![Screenshot (109)](https://github.com/user-attachments/assets/685ca919-9e38-4dcc-9017-17f67990a7d6)
+* /api/bookings: handles booking creation and retrieval
+* /api/users: handles user registration and login
+* /api/places: handles place creation and retrieval
+* /api/upload: handles image upload to Cloudinary
+
+
