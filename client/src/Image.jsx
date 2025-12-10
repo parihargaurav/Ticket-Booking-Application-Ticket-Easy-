@@ -1,7 +1,10 @@
 export default function Image({ src, ...rest }) {
-  src =
-    src && src.includes("https://")
-      ? src
-      : "http://localhost:4000/uploads/" + src;
-  return <img {...rest} src={src} alt={""} />;
+  // If Cloudinary URL already → use as is
+  if (!src) return null;
+
+  const finalSrc = src.startsWith("http")
+    ? src
+    : src; // no prefixing local URL!!
+
+  return <img {...rest} src={finalSrc} alt="" />;
 }

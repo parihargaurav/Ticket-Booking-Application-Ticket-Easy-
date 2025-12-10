@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
 import {UserContext} from "../UserContext.jsx";
-import {Link, Navigate, useParams} from "react-router-dom";
+import { Navigate, useParams} from "react-router-dom";
 import axios from "axios";
 import PlacesPage from "./PlacesPage";
 import AccountNav from "../AccountNav";
@@ -14,7 +14,7 @@ export default function ProfilePage() {
   }
 
   async function logout() {
-    await axios.post('/api/logout');
+    await axios.post('/api/auth/logout');
     setRedirect('/');
     setUser(null);
   }
@@ -35,7 +35,7 @@ export default function ProfilePage() {
       <AccountNav />
       {subpage === 'profile' && (
         <div className="text-center max-w-lg mx-auto">
-          Logged in as {user.name} ({user.email})<br />
+          Logged in as {user?.name} ({user?.email})<br />
           <button onClick={logout} className="primary max-w-sm mt-2">Logout</button>
         </div>
       )}

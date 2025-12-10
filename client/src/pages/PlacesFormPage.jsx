@@ -64,13 +64,13 @@ export default function PlacesFormPage() {
     };
     if (id) {
       // update
-      await axios.put('/places', {
+      await axios.put('/api/places', {
         id, ...placeData
       });
       setRedirect(true);
     } else {
       // new place
-      await axios.post('/places', placeData);
+      await axios.post('/api/places', placeData);
       setRedirect(true);
     }
 
@@ -88,7 +88,7 @@ export default function PlacesFormPage() {
         <input type="text" value={title} onChange={ev => setTitle(ev.target.value)} placeholder="title, for example: My lovely apt"/>
         {preInput('Address', 'Address to this place')}
         <input type="text" value={address} onChange={ev => setAddress(ev.target.value)}placeholder="address"/>
-        {preInput('Photos','more = better')}
+        {preInput('Photos')}
         <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
         {preInput('Description','description of the place')}
         <textarea value={description} onChange={ev => setDescription(ev.target.value)} />

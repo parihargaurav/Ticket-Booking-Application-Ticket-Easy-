@@ -2,14 +2,14 @@ import AccountNav from "../AccountNav";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import PlaceImg from "../PlaceImg";
-import {differenceInCalendarDays, format} from "date-fns";
+// import {differenceInCalendarDays, format} from "date-fns";
 import {Link} from "react-router-dom";
 import BookingDates from "../BookingDates";
 
 export default function BookingsPage() {
   const [bookings,setBookings] = useState([]);
   useEffect(() => {
-    axios.get('/api/bookings').then(response => {
+    axios.get('/api/bookings/').then(response => {
       setBookings(response.data);
     });
   }, []);

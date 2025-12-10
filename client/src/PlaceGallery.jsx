@@ -2,7 +2,6 @@ import {useState} from "react";
 import Image from "./Image.jsx";
 
 export default function PlaceGallery({place}) {
-
   const [showAllPhotos,setShowAllPhotos] = useState(false);
 
   if (showAllPhotos) {
@@ -18,8 +17,8 @@ export default function PlaceGallery({place}) {
               Close photos
             </button>
           </div>
-          {place?.photos?.length > 0 && place.photos.map(photo => (
-            <div>
+          {place?.photos?.length > 0 && place.photos.map((photo, index) => (
+            <div key={index}>
               <Image src={photo} alt=""/>
             </div>
           ))}
